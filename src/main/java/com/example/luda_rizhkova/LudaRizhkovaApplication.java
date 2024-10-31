@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class LudaRizhkovaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(LudaRizhkovaApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(LudaRizhkovaApplication.class, args);
+    }
 
 }
