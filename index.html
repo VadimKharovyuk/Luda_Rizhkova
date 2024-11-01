@@ -6,191 +6,10 @@
     <title>С Днём Рождения!</title>
     <style>
 
-
-        @media only screen
-        and (max-width: 430px),
-            /* iPhone 15 Pro Max */
-        only screen
-        and (max-width: 393px) {
-            /* Контейнер */
-            .container {
-                flex-direction: column;
-                padding-top: 70px; /* Учитываем высоту навигации */
-            }
-
-            /* Боковые панели */
-            .left-aside,
-            .right-aside {
-                position: relative;
-                width: 100%;
-                height: auto;
-                padding: 15px;
-                margin: 0;
-                overflow: visible;
-            }
-
-            /* Контент боковых панелей */
-            .aside-content {
-                padding: 10px;
-            }
-
-            .aside-content img {
-                width: 300px;
-                height: 300px;
-                margin: 10px auto;
-            }
-
-            /* Основной контент */
-            main {
-                margin: 0;
-                padding: 15px;
-                width: 100%;
-            }
-
-            /* Секции */
-            section {
-                min-height: auto;
-                padding: 20px;
-                margin: 15px 0;
-                width: 100%;
-            }
-
-            section img {
-                width: 100%;
-                max-height: 400px;
-                margin: 15px 0;
-            }
-
-            /* Навигация */
-            .fixed-nav {
-                width: 95%;
-                bottom: 20px;
-                top: auto;
-                background: rgba(10, 9, 16, 0.98);
-                padding: 10px 15px;
-                z-index: 2000;
-            }
-
-            .nav-content {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 8px;
-            }
-
-            .nav-link {
-                font-size: 12px;
-                padding: 6px 12px;
-            }
-
-            /* Текст */
-            section h1,
-            section h2 {
-                font-size: 24px;
-            }
-
-            section p {
-                font-size: 16px;
-                line-height: 1.4;
-            }
-
-            /* Поздравительное сообщение */
-            .personal-message {
-                margin: 15px 0;
-                padding: 15px;
-            }
-
-            /* Футер */
-            footer {
-                padding: 20px;
-                margin: 15px 0 80px; /* Учитываем высоту навигации снизу */
-            }
-
-            /* Всплывающее поздравление */
-            #wish-container {
-                width: 90% !important;
-                max-width: none !important;
-                padding: 15px !important;
-            }
-
-            /* Специальные исправления для корректного отображения */
-            .aside-content img,
-            section img {
-                object-fit: cover;
-                width: 100%;
-                height: auto;
-                max-width: 100%;
-                display: block;
-            }
-
-            /* Улучшенная производительность */
-            * {
-                -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
-            }
-
-            /* Исправление для Dynamic Island */
-            @supports (padding-top: env(safe-area-inset-top)) {
-                .container {
-                    padding-top: calc(env(safe-area-inset-top) + 70px);
-                }
-
-                .fixed-nav {
-                    padding-bottom: calc(env(safe-area-inset-bottom) + 10px);
-                }
-            }
-
-            /* Оптимизация для разных ориентаций */
-            @media (orientation: landscape) {
-                .aside-content img {
-                    height: 200px;
-                    width: 200px;
-                }
-
-                section {
-                    margin: 10px 0;
-                }
-
-                .fixed-nav {
-                    top: 20px;
-                    bottom: auto;
-                }
-            }
-
-            /* Исправления для плавного скролла */
-            html, body {
-                -webkit-overflow-scrolling: touch;
-                scroll-behavior: smooth;
-            }
-
-            /* Улучшение для тач-интерфейса */
-            .nav-link,
-            button {
-                min-height: 44px;
-                min-width: 44px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            /* Оптимизация анимаций */
-            .aside-content img:hover,
-            section:hover,
-            .nav-link:hover {
-                transform: none;
-            }
-
-            /* Фиксы для предотвращения горизонтального скролла */
-            body {
-                overflow-x: hidden;
-                width: 100%;
-            }
-
-            /* Оптимизация для изображений */
-            img {
-                max-width: 100%;
-                height: auto;
-            }
+        html {
+            scroll-behavior: smooth;
         }
+
         :root {
             --background-color: #0a0910;
             --text-color: #ffffff;
@@ -433,19 +252,6 @@
             -webkit-text-fill-color: transparent;
             animation: shimmer 3s infinite linear;
         }
-        .fixed-nav {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            background: rgba(10, 9, 16, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 25px;
-            border-radius: 50px;
-            box-shadow: 0 4px 20px rgba(184, 134, 11, 0.2);
-            border: 1px solid rgba(184, 134, 11, 0.3);
-        }
 
         .nav-content {
             display: flex;
@@ -510,26 +316,168 @@
             }
         }
 
+
+
+
         .fixed-nav {
-            animation: navFadeIn 0.5s ease forwards;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: rgba(10, 9, 16, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(184, 134, 11, 0.2);
+            border: 1px solid rgba(184, 134, 11, 0.3);
+            width: auto;
+            max-width: calc(100% - 840px); /* учитываем ширину сайдбаров */
+        }
+
+        .nav-content {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        /* Медиа-запрос для мобильных устройств */
+        @media (max-width: 430px) {
+            .fixed-nav {
+                bottom: 20px;
+                top: auto;
+                width: 90%;
+                max-width: 90%;
+                padding: 10px;
+            }
+
+            .nav-link {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .container {
+                padding-top: 0;
+                margin-bottom: 80px; /* Чтобы контент не перекрывался навигацией снизу */
+            }
+
+            .left-aside,
+            .right-aside {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 15px;
+                margin: 0;
+            }
+
+            main {
+                margin: 0;
+                padding: 15px;
+            }
+
+            section {
+                margin: 15px 0;
+                padding: 20px;
+            }
+
+            .aside-content img {
+                width: 100%;
+                height: auto;
+                max-width: 300px;
+                margin: 10px auto;
+            }
+        }
+
+        /* Для iPhone 15 Pro / Pro Max */
+        @media only screen
+        and (device-width: 430px)
+        and (device-height: 932px),
+        (device-width: 393px)
+        and (device-height: 852px) {
+            .container {
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: calc(env(safe-area-inset-bottom) + 80px);
+            }
+
+            .fixed-nav {
+                padding-bottom: calc(env(safe-area-inset-bottom) + 10px);
+                margin-bottom: env(safe-area-inset-bottom);
+            }
+        }.container {
+             display: flex;
+             min-height: 100vh;
+             position: relative;
+             padding-top: 80px; /* добавляем отступ для навигации */
+         }
+
+        main {
+            margin: 0 420px;
+            padding: 30px;
+            flex-grow: 1;
+            position: relative;
+        }
+        @media (max-width: 430px) {
+            #wish-container {
+                width: 90% !important;
+                padding: 1rem !important;
+            }
+
+            #wish-container div:first-child {
+                font-size: 2em !important;
+            }
+
+            #wish-container div:nth-child(2) {
+                font-size: 1.2em !important;
+            }
+        }
+        @media (max-width: 430px) {
+            * {
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+                -webkit-user-select: none;
+                user-select: none;
+            }
+
+            .container {
+                overflow-x: hidden;
+            }
         }
     </style>
 </head>
-<nav class="fixed-nav">
-    <div class="nav-content">
-        <a href="#section1" class="nav-link">R</a>
-        <a href="#section2" class="nav-link">Y</a>
-        <a href="#section3" class="nav-link">Z</a>
-        <a href="#section4" class="nav-link">H</a>
-        <a href="#section5" class="nav-link">K</a>
-        <a href="#section6" class="nav-link">O</a>
-        <a href="#section7" class="nav-link">V</a>
-        <a href="#section8" class="nav-link">А</a>
-        <a href="#footer" class="nav-link">Получить поздравление</a>
-    </div>
-</nav>
 <body>
 <div class="container">
+    <nav class="fixed-nav">
+        <div class="nav-content">
+            <a href="#section1" class="nav-link">R</a>
+            <a href="#section2" class="nav-link">Y</a>
+            <a href="#section3" class="nav-link">Z</a>
+            <a href="#section4" class="nav-link">H</a>
+            <a href="#section5" class="nav-link">K</a>
+            <a href="#section6" class="nav-link">O</a>
+            <a href="#section7" class="nav-link">V</a>
+            <a href="#section8" class="nav-link">А</a>
+            <a href="#footer" class="nav-link">Получить поздравление</a>
+        </div>
+    </nav>
     <aside class="left-aside">
         <div class="aside-content">
             <img src="https://scontent.ffjr1-6.fna.fbcdn.net/v/t39.30808-6/295546314_2034082843428614_9079360599545058916_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=FsqlL7olgS8Q7kNvgENl69u&_nc_zt=23&_nc_ht=scontent.ffjr1-6.fna&_nc_gid=A-wEzgFEtzJz7A9KmDCvjX7&oh=00_AYDEnQu-SRaHvVJtBzK3GhK-J7X4HfwHDE-Wr7RR63Qiaw&oe=6729C6E9"
@@ -813,6 +761,15 @@
     const styleSheet = document.createElement('style');
     styleSheet.textContent = styles;
     document.head.appendChild(styleSheet);
+</script>
+<script>
+    function closeWish() {
+        const wishContainer = document.getElementById('wish-container');
+        if (wishContainer) {
+            wishContainer.style.animation = 'scaleOut 0.5s ease forwards';
+            setTimeout(() => wishContainer.remove(), 500);
+        }
+    }
 </script>
 
 </body>
