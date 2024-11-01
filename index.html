@@ -2,778 +2,1284 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <!-- Добавить предзагрузку изображений -->
+    <link rel="preload" as="image" href="https://scontent.ffjr1-6.fna.fbcdn.net/v/t39.30808-6/295546314_2034082843428614_9079360599545058916_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=FsqlL7olgS8Q7kNvgENl69u&_nc_zt=23&_nc_ht=scontent.ffjr1-6.fna&_nc_gid=A-wEzgFEtzJz7A9KmDCvjX7&oh=00_AYDEnQu-SRaHvVJtBzK3GhK-J7X4HfwHDE-Wr7RR63Qiaw&oe=6729C6E9">
+    <!-- Добавить для шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>С Днём Рождения!</title>
+    <title>С Днем Рождения!</title>
     <style>
 
-        html {
-            scroll-behavior: smooth;
-        }
+        /*:root {*/
+        /*      --primary: #FFD700; !* Золотой *!*/
+        /*      --secondary: #C0C0C0; !* Серебряный *!*/
+        /*      --accent: #B8860B; !* Тёмно-золотой *!*/
+        /*      --dark: #2C2C2C; !* Глубокий серый *!*/
+        /*      --light: #F5F5F5; !* Светло-серый *!*/
+        /*      --gradient1: linear-gradient(45deg, #FFD700, #B8860B);*/
+        /*      --gradient2: linear-gradient(135deg, #C0C0C0, #2C2C2C);*/
+        /*      --glass: rgba(245, 245, 245, 0.1);*/
+        /*      --glass-border: rgba(245, 245, 245, 0.2);*/
+        /*  }*/
 
+
+        /*темный*/
+        /*:root {*/
+        /*    --primary: #8A2BE2; !* Яркий фиолетовый *!*/
+        /*    --secondary: #4B0082; !* Индиго *!*/
+        /*    --accent: #00CED1; !* Бирюзовый *!*/
+        /*    --dark: #1A1B25; !* Тёмно-синий *!*/
+        /*    --light: #E6E6FA; !* Лавандовый *!*/
+        /*    --gradient1: linear-gradient(45deg, #8A2BE2, #4B0082);*/
+        /*    --gradient2: linear-gradient(135deg, #00CED1, #4B0082);*/
+        /*    --glass: rgba(230, 230, 250, 0.1);*/
+        /*    --glass-border: rgba(230, 230, 250, 0.2);*/
+        /*}*/
+
+
+        /*темно синяя*/
+        /*:root {*/
+        /*    --primary: #1A237E; !* Тёмно-синий *!*/
+        /*    --secondary: #0D47A1; !* Глубокий синий *!*/
+        /*    --accent: #2979FF; !* Яркий синий *!*/
+        /*    --dark: #0A1929; !* Почти чёрный с синим оттенком *!*/
+        /*    --light: #E3F2FD; !* Светло-голубой *!*/
+        /*    --gradient1: linear-gradient(45deg, #1A237E, #2979FF);*/
+        /*    --gradient2: linear-gradient(135deg, #0D47A1, #0A1929);*/
+        /*    --glass: rgba(227, 242, 253, 0.1);*/
+        /*    --glass-border: rgba(227, 242, 253, 0.2);*/
+        /*}*/
+
+        /*черная  панк*/
         :root {
-            --background-color: #0a0910;
-            --text-color: #ffffff;
-            --accent-color-1: #b8860b;  /* Золотой */
-            --accent-color-2: #1a1a2e;  /* Тёмно-синий */
-            --accent-color-3: #ffd700;  /* Яркий золотой */
-            --accent-color-4: #483d8b;  /* Тёмный индиго */
-            --secondary-color: #000000;
-            --gradient-start: #0a0910;
-            --gradient-middle: #1a1a2e;
-            --gradient-end: #2c2c54;
+            --primary: #066c60; /* Неоновый красный */
+            --secondary: #1A1A1A; /* Почти чёрный */
+            --accent: #00FFC8; /* Неоновый бирюзовый */
+            --dark: #0D0D0D; /* Глубокий чёрный */
+            --light: #e4e7f1; /* Чистый белый */
+            --gradient1: linear-gradient(45deg, #FF003C, #00FFC8);
+            --gradient2: linear-gradient(135deg, #1A1A1A, #0D0D0D);
+            --glass: rgba(12, 12, 12, 0.87);
+            --glass-border: rgb(42, 145, 187);
         }
 
-        body, html {
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'GothamPRO', Arial, sans-serif;
-            background: linear-gradient(135deg,
-            var(--gradient-start) 0%,
-            var(--gradient-middle) 50%,
-            var(--gradient-end) 100%);
-            background-attachment: fixed;
-            color: var(--text-color);
-            min-height: 100vh;
+            box-sizing: border-box;
         }
 
-        .container {
-            display: flex;
-            min-height: 100vh;
-            position: relative;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
         }
 
-        .left-aside, .right-aside {
-            width: 400px;
-            background: rgba(10, 9, 16, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 30px;
+        /* Стилизованный скроллбар */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        /* Навигация */
+        nav {
             position: fixed;
-            height: 100vh;
-            box-shadow: 0 0 25px rgba(184, 134, 11, 0.2);
-            overflow-y: auto;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
         }
 
-        .left-aside {
-            left: 0;
-            border-right: 1px solid rgba(184, 134, 11, 0.3);
+        .nav-dots {
+            list-style: none;
         }
 
-        .right-aside {
-            right: 0;
-            border-left: 1px solid rgba(184, 134, 11, 0.3);
-        }
-
-        .aside-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .aside-content img {
-            width: 400px;
-            height: 400px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            object-fit: cover;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-            border: 2px solid var(--accent-color-1);
-        }
-
-        .aside-content img:hover {
-            transform: scale(1.03) translateY(-5px);
-            box-shadow: 0 15px 30px rgba(184, 134, 11, 0.3);
-        }
-
-        .aside-content h2 {
-            color: var(--accent-color-3);
-            margin-bottom: 20px;
-            font-size: 28px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            margin: 20px 0;
+            background: var(--glass);
+            border: 2px solid var(--glass-border);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
             position: relative;
         }
 
-        .aside-content h2::after {
-            content: '';
-            display: block;
-            width: 50%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-color-1), transparent);
-            margin: 10px auto;
+        .nav-dot:hover {
+            transform: scale(1.5);
+            background: var(--primary);
         }
 
-        main {
-            margin: 0 420px;
-            padding: 30px;
-            flex-grow: 1;
+        .nav-dot.active {
+            background: var(--primary);
+        }
+
+        .nav-dot span {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            background: var(--glass);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 14px;
+            pointer-events: none;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-dot:hover span {
+            opacity: 1;
+            right: 25px;
+        }
+
+        /* Заголовок */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 600px;
+            height: 600px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            border: 4px solid var(--primary);
+            animation: morphing 10s infinite;
+        }
+
+        @keyframes morphing {
+            0% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            }
+            25% {
+                border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+            }
+            50% {
+                border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+            }
+            75% {
+                border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+            }
+            100% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            }
+        }
+
+        .birthday-name {
+            font-size: 4rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
         }
 
         section {
-            min-height: 80vh;
-            padding: 40px;
-            margin: 30px 0;
-            background: rgba(26, 26, 46, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid rgba(184, 134, 11, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 3rem 2rem;
         }
 
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(184, 134, 11, 0.15);
-        }
-
-        section img {
-            width: 100%;
-            max-height: 500px;
-            border-radius: 15px;
-            margin: 20px 0;
-            object-fit: cover;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.5s ease;
-            border: 2px solid var(--accent-color-1);
-        }
-
-        section img:hover {
-            transform: scale(1.02);
-        }
-
-        section h1, section h2 {
-            color: var(--accent-color-3);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        section p {
-            font-size: 18px;
-            line-height: 1.6;
-            color: var(--text-color);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .personal-message {
-            margin-top: 30px;
-            padding: 25px;
-            border-radius: 15px;
-            background: linear-gradient(145deg,
-            rgba(184, 134, 11, 0.1) 0%,
-            rgba(72, 61, 139, 0.1) 100%);
-            text-align: center;
-            border: 1px solid var(--accent-color-1);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .personal-message p {
-            margin: 15px 0;
-            line-height: 1.6;
-            font-size: 16px;
-        }
-
-        footer {
-            background: linear-gradient(145deg,
-            var(--accent-color-2) 0%,
-            var(--accent-color-4) 100%);
-            padding: 40px;
-            text-align: center;
-            margin-top: 50px;
-            border-radius: 20px;
-            border: 1px solid var(--accent-color-1);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        footer h3 {
-            color: var(--accent-color-3);
-            font-size: 24px;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        footer p {
-            font-size: 18px;
-            line-height: 1.6;
-            color: var(--text-color);
-        }
-
-        /* Добавляем декоративные элементы */
-        .decorative-line {
-            height: 2px;
-            background: linear-gradient(90deg,
-            transparent,
-            var(--accent-color-1),
-            var(--accent-color-3),
-            var(--accent-color-1),
-            transparent);
-            margin: 20px 0;
-            opacity: 0.5;
-        }
-
-        /* Эффект свечения для важных элементов */
-        .glow-effect {
+        .section-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
             position: relative;
         }
 
-        .glow-effect::before {
+        section:nth-child(even) .section-content {
+            flex-direction: row-reverse;
+        }
+
+        .section-img {
+            width: 600px;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgb(54, 215, 153);
+            transition: 0.5s;
+        }
+
+        .section-img:hover {
+            transform: translateY(-10px) rotate(5deg);
+            box-shadow: 0 20px 40px rgba(218, 52, 52, 0.4);
+        }
+
+        .greeting-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 500px;
+            transform: perspective(1000px) rotateY(5deg);
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .greeting-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            padding: 2px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .greeting-card:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .greeting-card:hover:before {
+            opacity: 1;
+        }
+
+        /* Футер */
+        footer {
+            background: var(--gradient1);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-title {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--light);
+        }
+
+        /* Декоративные элементы */
+        .decoration {
+            position: absolute;
+            background: var(--primary);
+            filter: blur(100px);
+            opacity: 0.5;
+            border-radius: 50%;
+        }
+
+        .decoration-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            left: -150px;
+            background: var(--primary);
+        }
+
+        .decoration-2 {
+            width: 700px;
+            height: 700px;
+            bottom: -200px;
+            right: -200px;
+            background: var(--secondary);
+        }
+
+        /* Анимации при скролле */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: 1s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Медиа запросы */
+        @media (max-width: 768px) {
+            nav {
+                right: 10px;
+            }
+
+            .nav-dot span {
+                display: none;
+            }
+
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .birthday-name {
+                font-size: 2.5rem;
+            }
+
+            .section-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            section:nth-child(even) .section-content {
+                flex-direction: column;
+            }
+
+            .section-img {
+                width: 100%;
+                height: 300px;
+            }
+
+            .greeting-card {
+                transform: none;
+                width: 100%;
+            }
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .balloon {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+
+        button {
+            background: #ff6b6b;
+            border: none;
+            padding: 1rem 2rem;
+            color: white;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        .message {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: 15px 0;
+            font-size: 1.5rem;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px;
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .message::before {
             content: '';
             position: absolute;
             top: -2px;
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(45deg,
-            var(--accent-color-1),
-            var(--accent-color-3));
-            border-radius: 17px;
+            background: linear-gradient(45deg, #ff3366, #00ff9d, #ff9d00);
+            border-radius: 12px;
             z-index: -1;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: 0.5s;
         }
 
-        .glow-effect:hover::before {
-            opacity: 0.5;
-        }
-
-        /* Анимация для текста */
-        @keyframes shimmer {
-            0% { background-position: -100% 0; }
-            100% { background-position: 100% 0; }
-        }
-
-        .shimmer-text {
-            background: linear-gradient(90deg,
-            var(--text-color) 0%,
-            var(--accent-color-3) 50%,
-            var(--text-color) 100%);
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 3s infinite linear;
-        }
-
-        .nav-content {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: var(--text-color);
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 25px;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg,
-            var(--accent-color-1),
-            var(--accent-color-3));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-            border-radius: 25px;
-        }
-
-        .nav-link:hover::before {
+        .message.visible {
             opacity: 1;
+            transform: translateY(0);
         }
 
-        .nav-link:hover {
-            color: var(--background-color);
-            transform: translateY(-2px);
+        .message:hover {
+            background: rgba(30, 30, 30, 0.9);
         }
 
-        /* Активное состояние для текущей секции */
-        .nav-link.active {
-            background: linear-gradient(45deg,
-            var(--accent-color-1),
-            var(--accent-color-3));
-            color: var(--background-color);
-            font-weight: bold;
+        .message:hover::before {
+            opacity: 1;
+            filter: blur(10px);
         }
 
-        /* Добавляем анимацию появления */
-        @keyframes navFadeIn {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -20px);
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, 0);
-            }
-        }
-
-
-
-
-        .fixed-nav {
+        /* Улучшенные стили для конфетти */
+        .confetti {
             position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            background: rgba(10, 9, 16, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 25px;
-            border-radius: 50px;
-            box-shadow: 0 4px 20px rgba(184, 134, 11, 0.2);
-            border: 1px solid rgba(184, 134, 11, 0.3);
-            width: auto;
-            max-width: calc(100% - 840px); /* учитываем ширину сайдбаров */
+            width: 15px;
+            height: 15px;
+            pointer-events: none;
+            background: var(--primary);
+            clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
         }
 
-        .nav-content {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-link {
-            color: var(--text-color);
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 25px;
-            font-size: 14px;
+        /* Стили для кнопок */
+        button {
+            background: var(--primary);
+            color: var(--light);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            min-width: 40px;
-            text-align: center;
+            margin: 10px;
         }
 
-        /* Медиа-запрос для мобильных устройств */
-        @media (max-width: 430px) {
-            .fixed-nav {
-                bottom: 20px;
-                top: auto;
-                width: 90%;
-                max-width: 90%;
-                padding: 10px;
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+        .fade-in {
+            will-change: opacity, transform;
+        }
+
+        .section-img, .greeting-card {
+            will-change: transform;
+        }
+
+
+
+
+        /* Обновленные медиа запросы для лучшей адаптивности */
+        @media (max-width: 1024px) {
+            .profile-img {
+                width: 400px;
+                height: 400px;
             }
 
-            .nav-link {
-                padding: 6px 12px;
-                font-size: 12px;
+            .section-img {
+                width: 400px;
+                height: 400px;
             }
 
-            .container {
-                padding-top: 0;
-                margin-bottom: 80px; /* Чтобы контент не перекрывался навигацией снизу */
+            .section-content {
+                gap: 2rem;
+                padding: 0 1rem;
             }
 
-            .left-aside,
-            .right-aside {
-                position: relative;
+            .birthday-name {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                right: 10px;
+            }
+
+            .nav-dot span {
+                display: none;
+            }
+
+            .profile-img {
+                width: 280px;
+                height: 280px;
+            }
+
+            .birthday-name {
+                font-size: 2rem;
+                padding: 0 1rem;
+            }
+
+            .section-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            section:nth-child(even) .section-content {
+                flex-direction: column;
+            }
+
+            .section-img {
                 width: 100%;
-                height: auto;
-                padding: 15px;
-                margin: 0;
+                height: 350px;
             }
 
-            main {
-                margin: 0;
-                padding: 15px;
+            .greeting-card {
+                transform: none;
+                width: 100%;
+                padding: 1.5rem;
+            }
+
+            .greeting-text {
+                font-size: 1.1rem;
+            }
+
+            .footer-title {
+                font-size: 2rem;
+            }
+
+            button {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-img {
+                width: 220px;
+                height: 220px;
+            }
+
+            .birthday-name {
+                font-size: 1.8rem;
             }
 
             section {
+                padding: 2rem 1rem;
+            }
+
+            .section-img {
+                height: 280px;
+            }
+
+            .greeting-card {
+                padding: 1rem;
+            }
+
+            .greeting-text {
+                font-size: 1rem;
+            }
+
+            .nav-dot {
+                width: 8px;
+                height: 8px;
                 margin: 15px 0;
-                padding: 20px;
             }
 
-            .aside-content img {
+            .decoration-1,
+            .decoration-2 {
+                opacity: 0.3;
+            }
+
+            .footer-content {
+                padding: 1rem;
+            }
+
+            button {
                 width: 100%;
+                margin: 0.5rem 0;
+            }
+
+            #messages {
+                padding: 0 1rem;
+            }
+
+            .message {
+                font-size: 1rem;
+                padding: 10px;
+            }
+        }
+
+        /* Добавляем поддержку для очень маленьких экранов */
+        @media (max-width: 320px) {
+            .profile-img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .birthday-name {
+                font-size: 1.5rem;
+            }
+
+            .section-img {
+                height: 240px;
+            }
+        }
+
+        /* Добавляем поддержку для ландшафтной ориентации */
+        @media (max-height: 600px) and (orientation: landscape) {
+            header {
                 height: auto;
-                max-width: 300px;
-                margin: 10px auto;
+                padding: 4rem 1rem;
+            }
+
+            .profile-img {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 1rem;
+            }
+
+            section {
+                min-height: auto;
+                padding: 3rem 1rem;
+            }
+
+            .section-content {
+                flex-direction: row;
+                gap: 2rem;
+            }
+
+            .section-img {
+                width: 300px;
+                height: 300px;
             }
         }
 
-        /* Для iPhone 15 Pro / Pro Max */
-        @media only screen
-        and (device-width: 430px)
-        and (device-height: 932px),
-        (device-width: 393px)
-        and (device-height: 852px) {
-            .container {
-                padding-top: env(safe-area-inset-top);
-                padding-bottom: calc(env(safe-area-inset-bottom) + 80px);
-            }
 
-            .fixed-nav {
-                padding-bottom: calc(env(safe-area-inset-bottom) + 10px);
-                margin-bottom: env(safe-area-inset-bottom);
-            }
-        }.container {
-             display: flex;
-             min-height: 100vh;
-             position: relative;
-             padding-top: 80px; /* добавляем отступ для навигации */
-         }
 
-        main {
-            margin: 0 420px;
-            padding: 30px;
-            flex-grow: 1;
-            position: relative;
-        }
-        @media (max-width: 430px) {
-            #wish-container {
-                width: 90% !important;
-                padding: 1rem !important;
-            }
 
-            #wish-container div:first-child {
-                font-size: 2em !important;
-            }
-
-            #wish-container div:nth-child(2) {
-                font-size: 1.2em !important;
-            }
-        }
-        @media (max-width: 430px) {
-            * {
-                -webkit-tap-highlight-color: transparent;
-            }
-
-            img {
-                max-width: 100%;
-                height: auto;
-                -webkit-user-select: none;
-                user-select: none;
-            }
-
-            .container {
-                overflow-x: hidden;
-            }
-        }
     </style>
 </head>
 <body>
-<div class="container">
-    <nav class="fixed-nav">
-        <div class="nav-content">
-            <a href="#section1" class="nav-link">R</a>
-            <a href="#section2" class="nav-link">Y</a>
-            <a href="#section3" class="nav-link">Z</a>
-            <a href="#section4" class="nav-link">H</a>
-            <a href="#section5" class="nav-link">K</a>
-            <a href="#section6" class="nav-link">O</a>
-            <a href="#section7" class="nav-link">V</a>
-            <a href="#section8" class="nav-link">А</a>
-            <a href="#footer" class="nav-link">Получить поздравление</a>
+Ryzhkova
+<nav>
+    <ul class="nav-dots">
+        <li class="nav-dot active"><span>Главная</span></li>
+        <li class="nav-dot"><span>R</span></li>
+        <li class="nav-dot"><span>Y</span></li>
+        <li class="nav-dot"><span>Z</span></li>
+        <li class="nav-dot"><span>H</span></li>
+        <li class="nav-dot"><span>K</span></li>
+        <li class="nav-dot"><span>O</span></li>
+        <li class="nav-dot"><span>V</span></li>
+        <li class="nav-dot"><span>A</span></li>
+    </ul>
+</nav>
+
+<header id="header">
+    <div class="decoration decoration-1"></div>
+    <div class="decoration decoration-2"></div>
+    <div class="header-content fade-in">
+        <img src="https://scontent.ffjr1-6.fna.fbcdn.net/v/t39.30808-6/295546314_2034082843428614_9079360599545058916_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=FsqlL7olgS8Q7kNvgENl69u&_nc_zt=23&_nc_ht=scontent.ffjr1-6.fna&_nc_gid=A-wEzgFEtzJz7A9KmDCvjX7&oh=00_AYDEnQu-SRaHvVJtBzK3GhK-J7X4HfwHDE-Wr7RR63Qiaw&oe=6729C6E9"
+             alt="Фото именинницы" class="profile-img">
+        <h1 class="birthday-name">Людмила Рыжкова</h1>
+    </div>
+</header>
+
+<section id="section1">
+    <div class="section-content">
+        <img src="https://scontent.ffjr1-3.fna.fbcdn.net/v/t39.30808-6/442384351_18308872972196404_5849606732529900496_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Ys2sqWGmZ8MQ7kNvgEnFKYC&_nc_zt=23&_nc_ht=scontent.ffjr1-3.fna&_nc_gid=AxrLekzJWPwAAQfR6QH7kFB&oh=00_AYBPkh4TUoeW3nIkzqNWPni9FGmFz8m8KNWiy5aW0Ohg1w&oe=672A2E26"
+             alt="Поздравление 1" class="section-img fade-in">
+        <div class="greeting-card fade-in">
+            <p class="greeting-text">
+                Пусть этот особенный день будет наполнен радостью и счастьем!
+            </p>
         </div>
-    </nav>
-    <aside class="left-aside">
-        <div class="aside-content">
-            <img src="https://scontent.ffjr1-6.fna.fbcdn.net/v/t39.30808-6/295546314_2034082843428614_9079360599545058916_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=FsqlL7olgS8Q7kNvgENl69u&_nc_zt=23&_nc_ht=scontent.ffjr1-6.fna&_nc_gid=A-wEzgFEtzJz7A9KmDCvjX7&oh=00_AYDEnQu-SRaHvVJtBzK3GhK-J7X4HfwHDE-Wr7RR63Qiaw&oe=6729C6E9"
-                 alt="Фото именинницы">
-            <h2>Людмила Рыжкова </h2>
+    </div>
+</section>
 
+<section id="section2">
+    <div class="section-content">
+        <img src="https://scontent.ffjr1-2.fna.fbcdn.net/v/t39.30808-6/367414130_2330084417161787_1063497412166693088_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=eEyNfHr_qZgQ7kNvgHTb1t5&_nc_zt=23&_nc_ht=scontent.ffjr1-2.fna&_nc_gid=AZMf9RhxRedbgSYRk7ih1CV&oh=00_AYDDl9NHtWhrAzqfmoiAUPjsEt2bRbk7CQfvQc9N88l-AA&oe=672A232D"
+             alt="Поздравление 2" class="section-img fade-in">
+        <div class="greeting-card fade-in">
+            <samp>От всего сердца желаю... 💝</samp>
+            <p class="greeting-text">
+                В этот волшебный день пусть каждая твоя мечта обретет крылья! Желаю, чтобы счастье искрилось в глазах, а
+                сердце пело от радости! 🌟✨
+            </p>
         </div>
-    </aside>
+    </div>
+</section>
 
-    <main>
-        <section id="section1">
-            <h1>С Днём Рождения! ✨</h1>
-            <img src="https://scontent.ffjr1-1.fna.fbcdn.net/v/t39.30808-6/461802503_2617202605116632_4251053286397329472_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=HTE77lX8X9UQ7kNvgEGy8z7&_nc_zt=23&_nc_ht=scontent.ffjr1-1.fna&_nc_gid=AFJjL7CIAq3V0x_dugwxoVk&oh=00_AYBQdfum5TxxSBwoWLgOMdAdS8BFzZ89ZAJrSu4a4MdjhQ&oe=6729C7AE"
-                 alt="Фото 1">
-            <p>Пусть этот особенный день будет наполнен яркими моментами, радостью и счастьем! Пусть каждый миг сегодня запомнится теплыми улыбками, любовью и искренними поздравлениями. Желаю, чтобы сбывались мечты, достигались цели и каждый новый день приносил только лучшее! Пусть удача и успех идут рядом, а каждый день будет маленьким праздником жизни.</p>
-        </section>
-
-        <section id="section2">
-            <h2>Желаю тебе... 🌟</h2>
-            <img src="https://scontent.ffjr1-1.fna.fbcdn.net/v/t39.30808-6/456870849_18322610677196404_8429249369866310407_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=pi_89aSMOwUQ7kNvgHG2Orp&_nc_zt=23&_nc_ht=scontent.ffjr1-1.fna&_nc_gid=AfcN8lvpNSyCEy4N3WvkXKz&oh=00_AYD5Pz5YYFCX3v6yOyTRLEzO45eVCZTwObV1yitA2uao2Q&oe=6729D765"
-                 alt="Фото 2">
-            <p>Желаю радости, здоровья и вдохновения на каждый новый день. Пусть счастье заполняет жизнь, успех всегда сопровождает, а мечты воплощаются в реальность быстрее, чем ты этого ждешь.</p>
-        </section>
-
-        <section id="section3">
-            <h2>Будь счастлива! 🎉</h2>
-            <img src="https://scontent.ffjr1-5.fna.fbcdn.net/v/t39.30808-6/449282869_18314879656196404_8213251665798283266_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ij_JlvhGthsQ7kNvgF0mOEY&_nc_zt=23&_nc_ht=scontent.ffjr1-5.fna&_nc_gid=AuKMrTyRfcuccBjuqNn2goz&oh=00_AYAT8fSwsEayTuRN3jAHrXBzmuKVehdHEpDrFe50bYBzJg&oe=6729B212"
-                 alt="Фото 3">
-            <p>Сегодня твой день, и он заслуживает быть особенным. Желаю, чтобы мечты сбывались одна за другой, близкие радовали вниманием, а каждый день дарил больше поводов для счастья и радости!</p>
-        </section>
-
-        <section id="section4">
-            <h2>С праздником! 🎂</h2>
-            <img src="https://scontent.ffjr1-4.fna.fbcdn.net/v/t39.30808-6/448684259_18313671190196404_4692970862004758066_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=AsQQHkv_IwQQ7kNvgGbz6At&_nc_zt=23&_nc_ht=scontent.ffjr1-4.fna&_nc_gid=AZ-myOr-UWqQlUX0psHecTx&oh=00_AYBbmqXP27CoYxC7HRqquZcuoOqBegR5Yhw82nhrRfFKVA&oe=6729C848"
-                 alt="Фото 4">
-            <p>Пусть жизнь дарит тебе самые светлые моменты и прекрасные воспоминания. Пусть окружение вдохновляет, а каждый день открывает новые горизонты и возможности для роста.</p>
-        </section>
-
-        <section id="section5">
-            <h2>От всего сердца... 💝</h2>
-            <img src="https://scontent.ffjr1-6.fna.fbcdn.net/v/t39.30808-6/442441174_18310276657196404_5121462673474048633_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=JyxkO4ET5v8Q7kNvgGzbdVZ&_nc_zt=23&_nc_ht=scontent.ffjr1-6.fna&_nc_gid=A2Bws8dEDw8iEXhJGZs_AkD&oh=00_AYDAFvPrAy1O8zSwBUM9uwgJ2TWdiQXpXjuKUc15KF6mug&oe=6729C6D9"
-                 alt="Фото 5">
-            <p>Пусть жизнь будет полна приятных сюрпризов!</p>
-        </section>
-
-        <section id="section6">
-            <h1>С Днём Рождения! ✨</h1>
-            <img src="https://scontent.ffjr1-2.fna.fbcdn.net/v/t39.30808-6/453236401_18318731482196404_9192066152340675718_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=WX1kiCl7KTwQ7kNvgFIZpoT&_nc_zt=23&_nc_ht=scontent.ffjr1-2.fna&_nc_gid=Awry8S4njoOFzMqdYDNtkJl&oh=00_AYDlR5z4FizWOBP0o53YKQW2Oxhxpf6aTQWJabvU0KSprA&oe=6729D202"
-                 alt="Фото 1">
-            <p>Пусть счастье и успех идут с тобой по жизни, а любые трудности превращаются в возможности. Желаю, чтобы впереди были только светлые и радостные события.</p>
-        </section>
-        <section id="section7">
-            <h1>Желаю тебе .. ✨</h1>
-            <img src="https://scontent.ffjr1-6.fna.fbcdn.net/v/t39.30808-6/448760795_18313716385196404_4831959749146643525_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=cfpyYssW0VkQ7kNvgFgDVAv&_nc_zt=23&_nc_ht=scontent.ffjr1-6.fna&_nc_gid=ASJO4C7rSoODphkXmI5mGe9&oh=00_AYANEdYx-Y2WXXFxEBOvpwhQhE1OJyNKLerQ9ZkpmQlCUA&oe=6729DE7B"
-                 alt="Фото 1">
-            <p>Пусть этот особенный день будет наполнен радостью и счастьем!</p>
-        </section>
-        <section id="section8">
-            <h1>Самое главное .. ✨</h1>
-            <img src="https://scontent.ffjr1-6.fna.fbcdn.net/v/t39.30808-6/448760795_18313716385196404_4831959749146643525_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=cfpyYssW0VkQ7kNvgFgDVAv&_nc_zt=23&_nc_ht=scontent.ffjr1-6.fna&_nc_gid=ASJO4C7rSoODphkXmI5mGe9&oh=00_AYANEdYx-Y2WXXFxEBOvpwhQhE1OJyNKLerQ9ZkpmQlCUA&oe=6729DE7B"
-                 alt="Фото 1">
-            <p>С любовью в сердце любые мечты становятся реальностью!</p>
-        </section>
-
-
-        <footer id="footer">
-            <h3>С наилучшими пожеланиями!</h3>
-            <p>Пусть этот день рождения станет началом самого прекрасного года в твоей жизни!</p>
-            <button onclick="showBirthdayWish()" style="
-                padding: 1em 2em;
-                font-size: 1.2em;
-                background-color: #741627;
-                color: white;
-                border: none;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease;
-            ">
-                Получить поздравление 🎉
-            </button>
-        </footer>
-    </main>
-
-    <aside class="right-aside">
-        <div class="aside-content">
-            <img src="https://scontent.ffjr1-2.fna.fbcdn.net/v/t1.6435-9/123467677_2751318768518968_6531396523630604279_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=cFrBJtIzxQwQ7kNvgHcEwRP&_nc_zt=23&_nc_ht=scontent.ffjr1-2.fna&_nc_gid=AZyHADseuso7NvL5Bg_j7RH&oh=00_AYAi9bdaZmSlHcWBF3hrVnZDae7-sduBuTxO6eoppH64Vg&oe=674B469B"
-                 alt="Моё фото">
-            <h2>От меня лично</h2>
-            <div class="personal-message">
-                <p>Дорогая Люда!</p>
-                <p>В этот особенный день хочу пожелать тебе бесконечного счастья, любви и успехов во всём! Пусть каждый
-                    день приносит радость и новые открытия!</p>
-                <p> Вадим</p>
-            </div>
+<section id="section3">
+    <div class="section-content">
+        <img src="https://scontent.ffjr1-4.fna.fbcdn.net/v/t39.30808-6/461500055_18327613348196404_3727280850830723471_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=dNWoI9rgtxYQ7kNvgGmg91S&_nc_zt=23&_nc_ht=scontent.ffjr1-4.fna&_nc_gid=ATv0vdasXqveCjGofO4OJAZ&oh=00_AYAnqwf_5x7h-6wyb0Dm4Oh-xjTDtzm1k9nzKxHu21NnHg&oe=672A0C46"
+             alt="Поздравление 3" class="section-img fade-in">
+        <div class="greeting-card fade-in">
+            <samp>💝</samp>
+            <p class="greeting-text">
+                Пусть жизнь будет как радуга: яркой, красочной и полной чудес! Желаю, чтобы каждый день дарил новые
+                поводы для улыбки и счастья! 🌈💫
+            </p>
         </div>
+    </div>
+</section>
 
-    </aside>
-</div>
-<!-- JavaScript для активного состояния навигации -->
+<section id="section4">
+    <div class="section-content">
+        <img src="https://scontent.ffjr1-4.fna.fbcdn.net/v/t39.30808-6/457357343_18323106622196404_1270822676679859494_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=H9Nwgv4f0MYQ7kNvgHhvjMP&_nc_zt=23&_nc_ht=scontent.ffjr1-4.fna&_nc_gid=At_TicgxzTGgwBXz9q9QPe-&oh=00_AYC1slTy3pnWJqaUUXrM00CNqkUnCeZZCf3yOLzV723cfQ&oe=672A0511"
+             alt="Поздравление 4" class="section-img fade-in">
+        <div class="greeting-card fade-in">
+            <p class="greeting-text">
+                Пусть каждое утро начинается с улыбки, каждый день полон вдохновения, а каждый вечер заканчивается
+                мечтами о прекрасном! 🌅💫
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="section5">
+    <div class="section-content">
+        <img src="https://scontent.ffjr1-1.fna.fbcdn.net/v/t39.30808-6/453487402_18319112704196404_5706017221669042543_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=rizTk51TzcwQ7kNvgEhkopG&_nc_zt=23&_nc_ht=scontent.ffjr1-1.fna&_nc_gid=AzJSTBj1uM5JzEEchcxCqBS&oh=00_AYCXUnqdLF1t59p00WJf3V-FMf_kzCNYVR3HxW_RnC9syw&oe=672A2513"
+             alt="Поздравление 5" class="section-img fade-in">
+        <div class="greeting-card fade-in">
+            <p class="greeting-text">
+                Желаю, чтобы твоя жизнь была как любимая мелодия - гармоничной, красивой и запоминающейся! Пусть удача
+                следует за тобой! 🎵💫
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="section6">
+    <div class="section-content">
+        <img src="https://scontent.ffjr1-5.fna.fbcdn.net/v/t39.30808-6/449453939_18314987152196404_4771497953437338152_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=dTsOglwxQ1gQ7kNvgHHbRiz&_nc_zt=23&_nc_ht=scontent.ffjr1-5.fna&_nc_gid=AaK4nFWPMmX5h7Wi192YOjt&oh=00_AYCnaXvplvo14aR-9uoyFGHiSm7i37_cniERnQBwwT7pkw&oe=672A19B1"
+             alt="Поздравление 6" class="section-img fade-in">
+        <div class="greeting-card fade-in">
+            <p class="greeting-text">
+                Пусть твои глаза всегда сияют от счастья, душа поет от любви, а сердце наполняется радостью каждый день
+                твоей жизни! 💖✨
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="section7">
+    <div class="section-content">
+        <img src="https://scontent.ffjr1-5.fna.fbcdn.net/v/t39.30808-6/449282869_18314879656196404_8213251665798283266_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ij_JlvhGthsQ7kNvgF0mOEY&_nc_zt=23&_nc_ht=scontent.ffjr1-5.fna&_nc_gid=AuKMrTyRfcuccBjuqNn2goz&oh=00_AYAT8fSwsEayTuRN3jAHrXBzmuKVehdHEpDrFe50bYBzJg&oe=6729B212"
+             alt="Поздравление 7" class="section-img fade-in">
+        <div class="greeting-card fade-in">
+            <p class="greeting-text">
+                Пусть каждый момент жизни дарит тебе радость, каждая встреча - счастье, а каждое мгновение - любовь и
+                вдохновение! 💫💝
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="decoration decoration-1"></div>
+    <div class="decoration decoration-2"></div>
+    <div class="footer-content">
+        <h2 class="footer-title">С Днем Рождения!</h2>
+        <div id="messages"></div>
+        <button onclick="showNextMessage()">Нажми меня!</button>
+        <button onclick="createConfetti()">Запустить конфетти!</button>
+    </div>
+</footer>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        function changeLinkState() {
-            let index = sections.length;
-
-            while(--index && window.scrollY + 50 < sections[index].offsetTop) {}
-
-            navLinks.forEach((link) => link.classList.remove('active'));
-            navLinks[index].classList.add('active');
-        }
-
-        window.addEventListener('scroll', changeLinkState);
-    });
-</script>
-<script>
-    // Массив с поздравлениями
-    const birthdayWishes = [
-        {
-            text: "В этот особенный день желаю тебе безграничного счастья! ✨",
-            emoji: "🌟",
-            color: "#FFD700"
-        },
-        {
-            text: "Пусть каждый день будет наполнен радостью и любовью!",
-            emoji: "💖",
-            color: "#FF69B4"
-        },
-        {
-            text: "Желаю чтобы все твои мечты превращались в реальность!",
-            emoji: "🎆",
-            color: "#4169E1"
-        },
-        {
-            text: "Будь счастлива и люби жизнь так же сильно, как она любит тебя!",
-            emoji: "🌺",
-            color: "#FF1493"
-        },
-        {
-            text: "Пусть этот год принесёт тебе много радостных моментов!",
-            emoji: "🎉",
-            color: "#9370DB"
-        }
+    const messages = [
+        "В этот особенный день...",
+        "Хочу пожелать тебе море счастья! 🌊",
+        "Крепких объятия сзади! ❤️",
+        "Женского счастья! 🍀",
+        "Пусть все твои мечты сбудутся! ⭐",
     ];
 
-    // Функция создания эффекта конфетти
+    let currentMessage = 0;
+
+    function showNextMessage() {
+        if (currentMessage < messages.length) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+            messageDiv.textContent = messages[currentMessage];
+            document.getElementById('messages').appendChild(messageDiv);
+            setTimeout(() => messageDiv.classList.add('visible'), 100);
+            currentMessage++;
+        }
+    }
+
     function createConfetti() {
-        const colors = ['#FFD700', '#FF69B4', '#4169E1', '#FF1493', '#9370DB'];
-        for (let i = 0; i < 100; i++) {
+
+
+        for (let i = 0; i < 120; i++) {
             const confetti = document.createElement('div');
             confetti.className = 'confetti';
             confetti.style.left = Math.random() * 100 + 'vw';
-            confetti.style.animationDelay = Math.random() * 3 + 's';
-            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.top = -10 + 'px';
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
             document.body.appendChild(confetti);
 
-            // Удаляем конфетти после анимации
-            setTimeout(() => confetti.remove(), 5000);
+            const animation = confetti.animate([
+                {transform: 'translateY(0) rotate(0)', opacity: 1},
+                {transform: `translateY(100vh) rotate(${Math.random() * 360}deg)`, opacity: 0}
+            ], {
+                duration: Math.random() * 2000 + 1000,
+                iterations: 1
+            });
+
+            animation.onfinish = () => confetti.remove();
         }
     }
-
-    // Функция создания всплывающих букв
-    function createFloatingLetters(text, color) {
-        const container = document.createElement('div');
-        container.style.position = 'fixed';
-        container.style.top = '50%';
-        container.style.left = '50%';
-        container.style.transform = 'translate(-50%, -50%)';
-        container.style.zIndex = '1000';
-
-        text.split('').forEach((letter, index) => {
-            const span = document.createElement('span');
-            span.textContent = letter;
-            span.style.color = color;
-            span.style.position = 'relative';
-            span.style.display = 'inline-block';
-            span.style.animation = `floatIn 0.5s ease ${index * 0.1}s forwards`;
-            container.appendChild(span);
+    // Добавить в конец скрипта
+    if ('ontouchstart' in window) {
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                this.click();
+            });
         });
-
-        document.body.appendChild(container);
-        setTimeout(() => container.remove(), 4000);
     }
+</script>
 
-    // Основная функция поздравления
-    function showBirthdayWish() {
-        // Получаем случайное поздравление
-        const wish = birthdayWishes[Math.floor(Math.random() * birthdayWishes.length)];
-
-        // Создаем контейнер для поздравления
-        const wishContainer = document.getElementById('wish-container') || document.createElement('div');
-        wishContainer.id = 'wish-container';
-        wishContainer.style.position = 'fixed';
-        wishContainer.style.top = '50%';
-        wishContainer.style.left = '50%';
-        wishContainer.style.transform = 'translate(-50%, -50%)';
-        wishContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
-        wishContainer.style.padding = '2rem';
-        wishContainer.style.borderRadius = '1rem';
-        wishContainer.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.2)';
-        wishContainer.style.zIndex = '1000';
-        wishContainer.style.textAlign = 'center';
-        wishContainer.style.maxWidth = '80vw';
-        wishContainer.style.animation = 'scaleIn 0.5s ease forwards';
-
-        // Добавляем содержимое
-        wishContainer.innerHTML = `
-        <div style="font-size: 3em; margin-bottom: 0.5em;">${wish.emoji}</div>
-        <div style="font-size: 1.5em; color: ${wish.color}; margin-bottom: 1em;">${wish.text}</div>
-        <button onclick="closeWish()" style="
-            padding: 0.5em 1em;
-            border: none;
-            border-radius: 0.5em;
-            background-color: ${wish.color};
-            color: white;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        ">Спасибо! ✨</button>
-    `;
-
-        // Добавляем контейнер на страницу
-        document.body.appendChild(wishContainer);
-
-        // Запускаем эффекты
-        createConfetti();
-        createFloatingLetters(wish.text, wish.color);
-
-        // Добавляем музыкальный эффект (если разрешено в браузере)
-        try {
-            const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgA');
-            audio.volume = 0.2;
-            audio.play().catch(() => console.log('Autoplay prevented'));
-        } catch (e) {
-            console.log('Audio playback prevented');
-        }
+<script>
+    // Создаем воздушные шарики
+    for (let i = 0; i < 15; i++) {
+        const balloon = document.createElement('div');
+        balloon.className = 'balloon';
+        balloon.textContent = '🎈';
+        balloon.style.left = Math.random() * 100 + '%';
+        balloon.style.top = Math.random() * 100 + '%';
+        balloon.style.fontSize = (Math.random() * 20 + 20) + 'px';
+        balloon.style.animationDelay = Math.random() * 2 + 's';
+        document.body.appendChild(balloon);
     }
-
-
-    // Добавляем необходимые стили
-    const styles = `
-    @keyframes scaleIn {
-        from { transform: translate(-50%, -50%) scale(0); }
-        to { transform: translate(-50%, -50%) scale(1); }
-    }
-
-    @keyframes scaleOut {
-        from { transform: translate(-50%, -50%) scale(1); }
-        to { transform: translate(-50%, -50%) scale(0); }
-    }
-
-    @keyframes floatIn {
-        0% {
-            opacity: 0;
-            transform: translateY(20px) rotate(10deg);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0) rotate(0deg);
-        }
-    }
-
-    .confetti {
-        position: fixed;
-        width: 10px;
-        height: 10px;
-        pointer-events: none;
-        animation: fall 5s linear forwards;
-    }
-
-    @keyframes fall {
-        0% {
-            transform: translateY(-100vh) rotate(0deg);
-        }
-        100% {
-            transform: translateY(100vh) rotate(720deg);
-        }
-    }
-`;
-    // Добавляем стили на страницу
-    const styleSheet = document.createElement('style');
-    styleSheet.textContent = styles;
-    document.head.appendChild(styleSheet);
 </script>
 <script>
-    function closeWish() {
-        const wishContainer = document.getElementById('wish-container');
-        if (wishContainer) {
-            wishContainer.style.animation = 'scaleOut 0.5s ease forwards';
-            setTimeout(() => wishContainer.remove(), 500);
-        }
-    }
-</script>
+    // Анимация при скролле
+    const observerOptions = {
+        threshold: 0.3
+    };
 
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(element => {
+        observer.observe(element);
+    });
+
+    // Навигация
+    const sections = document.querySelectorAll('section, header');
+    const navDots = document.querySelectorAll('.nav-dot');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - sectionHeight / 3)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navDots.forEach(dot => {
+            dot.classList.remove('active');
+            if (dot === navDots[Array.from(sections).findIndex(section => section.getAttribute('id') === current)]) {
+                dot.classList.add('active');
+            }
+        });
+    });
+
+    // Плавная прокрутка
+    navDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            sections[index].scrollIntoView({behavior: 'smooth'});
+        });
+    });
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>С Днём Рождения!</title>-->
+<!--    <style>-->
+
+<!--        html {-->
+<!--            scroll-behavior: smooth;-->
+<!--        }-->
+
+<!--        :root {-->
+<!--            &#45;&#45;background-color: #0a0910;-->
+<!--            &#45;&#45;text-color: #ffffff;-->
+<!--            &#45;&#45;accent-color-1: #b8860b;  /* Золотой */-->
+<!--            &#45;&#45;accent-color-2: #1a1a2e;  /* Тёмно-синий */-->
+<!--            &#45;&#45;accent-color-3: #ffd700;  /* Яркий золотой */-->
+<!--            &#45;&#45;accent-color-4: #483d8b;  /* Тёмный индиго */-->
+<!--            &#45;&#45;secondary-color: #000000;-->
+<!--            &#45;&#45;gradient-start: #0a0910;-->
+<!--            &#45;&#45;gradient-middle: #1a1a2e;-->
+<!--            &#45;&#45;gradient-end: #2c2c54;-->
+<!--        }-->
+
+<!--        body, html {-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--            font-family: 'GothamPRO', Arial, sans-serif;-->
+<!--            background: linear-gradient(135deg,-->
+<!--            var(&#45;&#45;gradient-start) 0%,-->
+<!--            var(&#45;&#45;gradient-middle) 50%,-->
+<!--            var(&#45;&#45;gradient-end) 100%);-->
+<!--            background-attachment: fixed;-->
+<!--            color: var(&#45;&#45;text-color);-->
+<!--            min-height: 100vh;-->
+<!--        }-->
+
+
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container">-->
+<!--    <nav class="fixed-nav">-->
+<!--        <div class="nav-content">-->
+<!--            <a href="#section1" class="nav-link">R</a>-->
+<!--            <a href="#section2" class="nav-link">Y</a>-->
+<!--            <a href="#section3" class="nav-link">Z</a>-->
+<!--            <a href="#section4" class="nav-link">H</a>-->
+<!--            <a href="#section5" class="nav-link">K</a>-->
+<!--            <a href="#section6" class="nav-link">O</a>-->
+<!--            <a href="#section7" class="nav-link">V</a>-->
+<!--            <a href="#section8" class="nav-link">А</a>-->
+<!--            <a href="#footer" class="nav-link">Получить поздравление</a>-->
+<!--        </div>-->
+<!--    </nav>-->
+<!--    <aside class="left-aside">-->
+<!--        <div class="aside-content">-->
+<!--            <img src="https://scontent.ffjr1-6.fna.fbcdn.net/v/t39.30808-6/295546314_2034082843428614_9079360599545058916_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=FsqlL7olgS8Q7kNvgENl69u&_nc_zt=23&_nc_ht=scontent.ffjr1-6.fna&_nc_gid=A-wEzgFEtzJz7A9KmDCvjX7&oh=00_AYDEnQu-SRaHvVJtBzK3GhK-J7X4HfwHDE-Wr7RR63Qiaw&oe=6729C6E9"-->
+<!--                 alt="Фото именинницы">-->
+<!--            <h2>Людмила Рыжкова </h2>-->
+
+<!--        </div>-->
+<!--    </aside>-->
+
+<!--    <main>-->
+<!--        <section id="section1">-->
+<!--            <h1>С Днём Рождения! ✨</h1>-->
+<!--            <img src="https://scontent.ffjr1-1.fna.fbcdn.net/v/t39.30808-6/461802503_2617202605116632_4251053286397329472_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=HTE77lX8X9UQ7kNvgEGy8z7&_nc_zt=23&_nc_ht=scontent.ffjr1-1.fna&_nc_gid=AFJjL7CIAq3V0x_dugwxoVk&oh=00_AYBQdfum5TxxSBwoWLgOMdAdS8BFzZ89ZAJrSu4a4MdjhQ&oe=6729C7AE"-->
+<!--                 alt="Фото 1">-->
+<!--            <p>Пусть этот особенный день будет наполнен яркими моментами, радостью и счастьем! Пусть каждый миг сегодня запомнится теплыми улыбками, любовью и искренними поздравлениями. Желаю, чтобы сбывались мечты, достигались цели и каждый новый день приносил только лучшее! Пусть удача и успех идут рядом, а каждый день будет маленьким праздником жизни.</p>-->
+<!--        </section>-->
+
+<!--        <section id="section2">-->
+<!--            <h2>Желаю тебе... 🌟</h2>-->
+<!--            <img src="https://scontent.ffjr1-1.fna.fbcdn.net/v/t39.30808-6/456870849_18322610677196404_8429249369866310407_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=pi_89aSMOwUQ7kNvgHG2Orp&_nc_zt=23&_nc_ht=scontent.ffjr1-1.fna&_nc_gid=AfcN8lvpNSyCEy4N3WvkXKz&oh=00_AYD5Pz5YYFCX3v6yOyTRLEzO45eVCZTwObV1yitA2uao2Q&oe=6729D765"-->
+<!--                 alt="Фото 2">-->
+<!--            <p>Желаю радости, здоровья и вдохновения на каждый новый день. Пусть счастье заполняет жизнь, успех всегда сопровождает, а мечты воплощаются в реальность быстрее, чем ты этого ждешь.</p>-->
+<!--        </section>-->
+
+<!--        <section id="section3">-->
+<!--            <h2>Будь счастлива! 🎉</h2>-->
+<!--            <img src="https://scontent.ffjr1-5.fna.fbcdn.net/v/t39.30808-6/449282869_18314879656196404_8213251665798283266_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ij_JlvhGthsQ7kNvgF0mOEY&_nc_zt=23&_nc_ht=scontent.ffjr1-5.fna&_nc_gid=AuKMrTyRfcuccBjuqNn2goz&oh=00_AYAT8fSwsEayTuRN3jAHrXBzmuKVehdHEpDrFe50bYBzJg&oe=6729B212"-->
+<!--                 alt="Фото 3">-->
+<!--            <p>Сегодня твой день, и он заслуживает быть особенным. Желаю, чтобы мечты сбывались одна за другой, близкие радовали вниманием, а каждый день дарил больше поводов для счастья и радости!</p>-->
+<!--        </section>-->
+
+<!--        <section id="section4">-->
+<!--            <h2>С праздником! 🎂</h2>-->
+<!--            <img src="https://scontent.ffjr1-4.fna.fbcdn.net/v/t39.30808-6/448684259_18313671190196404_4692970862004758066_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=AsQQHkv_IwQQ7kNvgGbz6At&_nc_zt=23&_nc_ht=scontent.ffjr1-4.fna&_nc_gid=AZ-myOr-UWqQlUX0psHecTx&oh=00_AYBbmqXP27CoYxC7HRqquZcuoOqBegR5Yhw82nhrRfFKVA&oe=6729C848"-->
+<!--                 alt="Фото 4">-->
+<!--            <p>Пусть жизнь дарит тебе самые светлые моменты и прекрасные воспоминания. Пусть окружение вдохновляет, а каждый день открывает новые горизонты и возможности для роста.</p>-->
+<!--        </section>-->
+
+<!--        <section id="section5">-->
+<!--            <h2>От всего сердца... 💝</h2>-->
+<!--            <img src="https://scontent.ffjr1-6.fna.fbcdn.net/v/t39.30808-6/442441174_18310276657196404_5121462673474048633_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=JyxkO4ET5v8Q7kNvgGzbdVZ&_nc_zt=23&_nc_ht=scontent.ffjr1-6.fna&_nc_gid=A2Bws8dEDw8iEXhJGZs_AkD&oh=00_AYDAFvPrAy1O8zSwBUM9uwgJ2TWdiQXpXjuKUc15KF6mug&oe=6729C6D9"-->
+<!--                 alt="Фото 5">-->
+<!--            <p>Пусть жизнь будет полна приятных сюрпризов!</p>-->
+<!--        </section>-->
+
+<!--        <section id="section6">-->
+<!--            <h1>С Днём Рождения! ✨</h1>-->
+<!--            <img src="https://scontent.ffjr1-2.fna.fbcdn.net/v/t39.30808-6/453236401_18318731482196404_9192066152340675718_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=WX1kiCl7KTwQ7kNvgFIZpoT&_nc_zt=23&_nc_ht=scontent.ffjr1-2.fna&_nc_gid=Awry8S4njoOFzMqdYDNtkJl&oh=00_AYDlR5z4FizWOBP0o53YKQW2Oxhxpf6aTQWJabvU0KSprA&oe=6729D202"-->
+<!--                 alt="Фото 1">-->
+<!--            <p>Пусть счастье и успех идут с тобой по жизни, а любые трудности превращаются в возможности. Желаю, чтобы впереди были только светлые и радостные события.</p>-->
+<!--        </section>-->
+<!--        <section id="section7">-->
+<!--            <h1>Желаю тебе .. ✨</h1>-->
+<!--            <img src="https://scontent.ffjr1-6.fna.fbcdn.net/v/t39.30808-6/448760795_18313716385196404_4831959749146643525_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=cfpyYssW0VkQ7kNvgFgDVAv&_nc_zt=23&_nc_ht=scontent.ffjr1-6.fna&_nc_gid=ASJO4C7rSoODphkXmI5mGe9&oh=00_AYANEdYx-Y2WXXFxEBOvpwhQhE1OJyNKLerQ9ZkpmQlCUA&oe=6729DE7B"-->
+<!--                 alt="Фото 1">-->
+<!--            <p>Пусть этот особенный день будет наполнен радостью и счастьем!</p>-->
+<!--        </section>-->
+<!--        <section id="section8">-->
+<!--            <h1>Самое главное .. ✨</h1>-->
+<!--            <img src="https://scontent.ffjr1-6.fna.fbcdn.net/v/t39.30808-6/448760795_18313716385196404_4831959749146643525_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=cfpyYssW0VkQ7kNvgFgDVAv&_nc_zt=23&_nc_ht=scontent.ffjr1-6.fna&_nc_gid=ASJO4C7rSoODphkXmI5mGe9&oh=00_AYANEdYx-Y2WXXFxEBOvpwhQhE1OJyNKLerQ9ZkpmQlCUA&oe=6729DE7B"-->
+<!--                 alt="Фото 1">-->
+<!--            <p>С любовью в сердце любые мечты становятся реальностью!</p>-->
+<!--        </section>-->
+
+
+<!--        <footer id="footer">-->
+<!--            <h3>С наилучшими пожеланиями!</h3>-->
+<!--            <p>Пусть этот день рождения станет началом самого прекрасного года в твоей жизни!</p>-->
+<!--            <button onclick="showBirthdayWish()" style="-->
+<!--                padding: 1em 2em;-->
+<!--                font-size: 1.2em;-->
+<!--                background-color: #741627;-->
+<!--                color: white;-->
+<!--                border: none;-->
+<!--                border-radius: 10px;-->
+<!--                cursor: pointer;-->
+<!--                transition: transform 0.3s ease;-->
+<!--            ">-->
+<!--                Получить поздравление 🎉-->
+<!--            </button>-->
+<!--        </footer>-->
+<!--    </main>-->
+
+<!--    <aside class="right-aside">-->
+<!--        <div class="aside-content">-->
+<!--            <img src="https://scontent.ffjr1-2.fna.fbcdn.net/v/t1.6435-9/123467677_2751318768518968_6531396523630604279_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=cFrBJtIzxQwQ7kNvgHcEwRP&_nc_zt=23&_nc_ht=scontent.ffjr1-2.fna&_nc_gid=AZyHADseuso7NvL5Bg_j7RH&oh=00_AYAi9bdaZmSlHcWBF3hrVnZDae7-sduBuTxO6eoppH64Vg&oe=674B469B"-->
+<!--                 alt="Моё фото">-->
+<!--            <h2>От меня лично</h2>-->
+<!--            <div class="personal-message">-->
+<!--                <p>Дорогая Люда!</p>-->
+<!--                <p>В этот особенный день хочу пожелать тебе бесконечного счастья, любви и успехов во всём! Пусть каждый-->
+<!--                    день приносит радость и новые открытия!</p>-->
+<!--                <p> Вадим</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--    </aside>-->
+<!--</div>-->
+<!--&lt;!&ndash; JavaScript для активного состояния навигации &ndash;&gt;-->
+<!--<script>-->
+<!--    document.addEventListener('DOMContentLoaded', function() {-->
+<!--        const sections = document.querySelectorAll('section');-->
+<!--        const navLinks = document.querySelectorAll('.nav-link');-->
+
+<!--        function changeLinkState() {-->
+<!--            let index = sections.length;-->
+
+<!--            while(&#45;&#45;index && window.scrollY + 50 < sections[index].offsetTop) {}-->
+
+<!--            navLinks.forEach((link) => link.classList.remove('active'));-->
+<!--            navLinks[index].classList.add('active');-->
+<!--        }-->
+
+<!--        window.addEventListener('scroll', changeLinkState);-->
+<!--    });-->
+<!--</script>-->
+<!--<script>-->
+<!--    // Массив с поздравлениями-->
+<!--    const birthdayWishes = [-->
+<!--        {-->
+<!--            text: "В этот особенный день желаю тебе безграничного счастья! ✨",-->
+<!--            emoji: "🌟",-->
+<!--            color: "#FFD700"-->
+<!--        },-->
+<!--        {-->
+<!--            text: "Пусть каждый день будет наполнен радостью и любовью!",-->
+<!--            emoji: "💖",-->
+<!--            color: "#FF69B4"-->
+<!--        },-->
+<!--        {-->
+<!--            text: "Желаю чтобы все твои мечты превращались в реальность!",-->
+<!--            emoji: "🎆",-->
+<!--            color: "#4169E1"-->
+<!--        },-->
+<!--        {-->
+<!--            text: "Будь счастлива и люби жизнь так же сильно, как она любит тебя!",-->
+<!--            emoji: "🌺",-->
+<!--            color: "#FF1493"-->
+<!--        },-->
+<!--        {-->
+<!--            text: "Пусть этот год принесёт тебе много радостных моментов!",-->
+<!--            emoji: "🎉",-->
+<!--            color: "#9370DB"-->
+<!--        }-->
+<!--    ];-->
+
+<!--    // Функция создания эффекта конфетти-->
+<!--    function createConfetti() {-->
+<!--        const colors = ['#FFD700', '#FF69B4', '#4169E1', '#FF1493', '#9370DB'];-->
+<!--        for (let i = 0; i < 100; i++) {-->
+<!--            const confetti = document.createElement('div');-->
+<!--            confetti.className = 'confetti';-->
+<!--            confetti.style.left = Math.random() * 100 + 'vw';-->
+<!--            confetti.style.animationDelay = Math.random() * 3 + 's';-->
+<!--            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];-->
+<!--            document.body.appendChild(confetti);-->
+
+<!--            // Удаляем конфетти после анимации-->
+<!--            setTimeout(() => confetti.remove(), 5000);-->
+<!--        }-->
+<!--    }-->
+
+<!--    // Функция создания всплывающих букв-->
+<!--    function createFloatingLetters(text, color) {-->
+<!--        const container = document.createElement('div');-->
+<!--        container.style.position = 'fixed';-->
+<!--        container.style.top = '50%';-->
+<!--        container.style.left = '50%';-->
+<!--        container.style.transform = 'translate(-50%, -50%)';-->
+<!--        container.style.zIndex = '1000';-->
+
+<!--        text.split('').forEach((letter, index) => {-->
+<!--            const span = document.createElement('span');-->
+<!--            span.textContent = letter;-->
+<!--            span.style.color = color;-->
+<!--            span.style.position = 'relative';-->
+<!--            span.style.display = 'inline-block';-->
+<!--            span.style.animation = `floatIn 0.5s ease ${index * 0.1}s forwards`;-->
+<!--            container.appendChild(span);-->
+<!--        });-->
+
+<!--        document.body.appendChild(container);-->
+<!--        setTimeout(() => container.remove(), 4000);-->
+<!--    }-->
+
+<!--    // Основная функция поздравления-->
+<!--    function showBirthdayWish() {-->
+<!--        // Получаем случайное поздравление-->
+<!--        const wish = birthdayWishes[Math.floor(Math.random() * birthdayWishes.length)];-->
+
+<!--        // Создаем контейнер для поздравления-->
+<!--        const wishContainer = document.getElementById('wish-container') || document.createElement('div');-->
+<!--        wishContainer.id = 'wish-container';-->
+<!--        wishContainer.style.position = 'fixed';-->
+<!--        wishContainer.style.top = '50%';-->
+<!--        wishContainer.style.left = '50%';-->
+<!--        wishContainer.style.transform = 'translate(-50%, -50%)';-->
+<!--        wishContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';-->
+<!--        wishContainer.style.padding = '2rem';-->
+<!--        wishContainer.style.borderRadius = '1rem';-->
+<!--        wishContainer.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.2)';-->
+<!--        wishContainer.style.zIndex = '1000';-->
+<!--        wishContainer.style.textAlign = 'center';-->
+<!--        wishContainer.style.maxWidth = '80vw';-->
+<!--        wishContainer.style.animation = 'scaleIn 0.5s ease forwards';-->
+
+<!--        // Добавляем содержимое-->
+<!--        wishContainer.innerHTML = `-->
+<!--        <div style="font-size: 3em; margin-bottom: 0.5em;">${wish.emoji}</div>-->
+<!--        <div style="font-size: 1.5em; color: ${wish.color}; margin-bottom: 1em;">${wish.text}</div>-->
+<!--        <button onclick="closeWish()" style="-->
+<!--            padding: 0.5em 1em;-->
+<!--            border: none;-->
+<!--            border-radius: 0.5em;-->
+<!--            background-color: ${wish.color};-->
+<!--            color: white;-->
+<!--            cursor: pointer;-->
+<!--            transition: transform 0.3s ease;-->
+<!--        ">Спасибо! ✨</button>-->
+<!--    `;-->
+
+<!--        // Добавляем контейнер на страницу-->
+<!--        document.body.appendChild(wishContainer);-->
+
+<!--        // Запускаем эффекты-->
+<!--        createConfetti();-->
+<!--        createFloatingLetters(wish.text, wish.color);-->
+
+<!--        // Добавляем музыкальный эффект (если разрешено в браузере)-->
+<!--        try {-->
+<!--            const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgA');-->
+<!--            audio.volume = 0.2;-->
+<!--            audio.play().catch(() => console.log('Autoplay prevented'));-->
+<!--        } catch (e) {-->
+<!--            console.log('Audio playback prevented');-->
+<!--        }-->
+<!--    }-->
+
+
+<!--    // Добавляем необходимые стили-->
+<!--    const styles = `-->
+<!--    @keyframes scaleIn {-->
+<!--        from { transform: translate(-50%, -50%) scale(0); }-->
+<!--        to { transform: translate(-50%, -50%) scale(1); }-->
+<!--    }-->
+
+<!--    @keyframes scaleOut {-->
+<!--        from { transform: translate(-50%, -50%) scale(1); }-->
+<!--        to { transform: translate(-50%, -50%) scale(0); }-->
+<!--    }-->
+
+<!--    @keyframes floatIn {-->
+<!--        0% {-->
+<!--            opacity: 0;-->
+<!--            transform: translateY(20px) rotate(10deg);-->
+<!--        }-->
+<!--        100% {-->
+<!--            opacity: 1;-->
+<!--            transform: translateY(0) rotate(0deg);-->
+<!--        }-->
+<!--    }-->
+
+<!--    .confetti {-->
+<!--        position: fixed;-->
+<!--        width: 10px;-->
+<!--        height: 10px;-->
+<!--        pointer-events: none;-->
+<!--        animation: fall 5s linear forwards;-->
+<!--    }-->
+
+<!--    @keyframes fall {-->
+<!--        0% {-->
+<!--            transform: translateY(-100vh) rotate(0deg);-->
+<!--        }-->
+<!--        100% {-->
+<!--            transform: translateY(100vh) rotate(720deg);-->
+<!--        }-->
+<!--    }-->
+<!--`;-->
+<!--    // Добавляем стили на страницу-->
+<!--    const styleSheet = document.createElement('style');-->
+<!--    styleSheet.textContent = styles;-->
+<!--    document.head.appendChild(styleSheet);-->
+<!--</script>-->
+<!--<script>-->
+<!--    function closeWish() {-->
+<!--        const wishContainer = document.getElementById('wish-container');-->
+<!--        if (wishContainer) {-->
+<!--            wishContainer.style.animation = 'scaleOut 0.5s ease forwards';-->
+<!--            setTimeout(() => wishContainer.remove(), 500);-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
 
 
 
